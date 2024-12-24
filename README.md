@@ -64,7 +64,7 @@ By following these 2 Ways you can easily obtain and install the module. For deta
 
 ## Magento 2 Save For Later User Guide
 
-Login to the **Magento Admin**, navigate to `Mdbhojwani -> Save For Later Configuration `.
+Login to the **Magento Admin**, navigate to `Store > Configurations -> Mdbhojwani -> Save For Later `.
 
 There,You can find two options: configuration, and Save for later Products and Analyzation.
 
