@@ -69,7 +69,7 @@ Login to the **Magento Admin**, navigate to `Mdbhojwani -> Save For Later Config
 There,You can find two options: configuration, and Save for later Products and Analyzation.
 
 <div>
-    <img src="./ReadmeImages/AdminSaveForLater.png" alt="AdminSaveForLater">
+    <img src="./assets/AdminSaveForLater.png" alt="AdminSaveForLater">
 </div><br/>
 
 #### 1. General Configuration 
@@ -77,7 +77,7 @@ There,You can find two options: configuration, and Save for later Products and A
 - Extension enable : Select Yes/No to enable or disable the module
 
 <div>
-    <img src="./ReadmeImages/GeneralConfiguration.png" alt="GeneralConfiguration">
+    <img src="./assets/GeneralConfiguration.png" alt="GeneralConfiguration">
 </div><br/>
 
 Click on "Save", which will save the configuration.
@@ -90,13 +90,13 @@ By using these graphs, you can analyze the data in various ways on a daily, mont
 
 Once you choose the graph type, the graph will appear, as shown in the image below.
 <div>
-    <img src="./ReadmeImages/Chart.png" alt="Chart">
+    <img src="./assets/Chart.png" alt="Chart">
 </div><br/>
 
 Furthermore, inside this page, as you scroll down, you'll be able to access a grid for detailed data analysis. Within this section, you can thoroughly examine and interpret the data of the 'save for later' section. This feature proves beneficial for marketing purposes as well, offering valuable insights into consumer behavior and preferences.
 
 <div>
-    <img src="./ReadmeImages/SaveForLaterGrid.png" alt="SaveForLaterGrid">
+    <img src="./assets/SaveForLaterGrid.png" alt="SaveForLaterGrid">
 </div><br/>
 
 
@@ -106,7 +106,7 @@ After a customer adds a product to the cart within the mini-cart, they can see a
 Only logged-in customers can use the "Save for Later" option to add products.
 
 <div>
-    <img src="./ReadmeImages/SaveForLaterButton.png" alt="SaveForLaterButton">
+    <img src="./assets/SaveForLaterButton.png" alt="SaveForLaterButton">
 </div><br/>
 
 Upon clicking this button, all products in the cart will be moved to the "Save for Later" section. 
@@ -114,7 +114,7 @@ Upon clicking this button, all products in the cart will be moved to the "Save f
 To access this section, customers can navigate to "My Account" and find the "Save for Later" tab. Here, they can view all the products they have moved for later consideration.
 
 <div>
-    <img src="./ReadmeImages/SaveForLaterSection.png" alt="SaveForLaterSection">
+    <img src="./assets/SaveForLaterSection.png" alt="SaveForLaterSection">
 </div><br/>
 
 
@@ -123,7 +123,7 @@ As you can see in the above screenshot, customers can easily manage products fro
  Additionally, if there are more than 5 or 6 products in the "Save for Later" section, a loader will appear for seamless navigation.
 
 <div>
-    <img src="./ReadmeImages/AddProducrToCart.png" alt="AddProducrToCart">
+    <img src="./assets/AddProducrToCart.png" alt="AddProducrToCart">
 </div><br/>
 
 Following the actions described, customers will receive messages similar to those shown in the screenshots. Whether they add, remove, or encounter any issues, appropriate messages will be displayed for clarity and guidance.
