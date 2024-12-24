@@ -1,0 +1,33 @@
+<?php
+/**
+ * @category Mdbhojwani
+ * @package Mdbhojwani_SaveForLater
+ * @author Manish Bhojwani <manishbhojwani3@gmail.com>
+ * @github https://github.com/mdbhojwani
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+/* @var \Mdbhojwani\SaveForLater\Block\Customer\SaveForLater\Item\Options $block */
+?>
+
+<?php $options = $block->getOptionList(); ?>
+<?php if ($options) : ?>
+<div class="tooltip wrapper product-item-tooltip">
+    <span class="action details tooltip toggle"><?= $block->escapeHtml(__('See Details')) ?></span>
+    <div class="tooltip content">
+        <strong class="subtitle"><?= $block->escapeHtml(__('Options Details')) ?></strong>
+        <dl>
+            <?php foreach ($options as $option) : ?>
+            <dt class="label"><?= $block->escapeHtml($option['label']) ?></dt>
+            <dd class="values">
+                <?php if (is_array($option['value'])) : ?>
+                    <?= /* @noEscape */ nl2br(implode("\n", $option['value'])) ?>
+                <?php else : ?>
+                    <?= /* @noEscape */ $option['value'] ?>
+                <?php endif; ?>
+            </dd>
+            <?php endforeach; ?>
+        </dl>
+    </div>
+</div>
+<?php endif ?>

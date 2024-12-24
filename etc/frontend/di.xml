@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Mdbhojwani
+ * @package Mdbhojwani_SaveForLater
+ * @author Manish Bhojwani <manishbhojwani3@gmail.com>
+ * @github https://github.com/mdbhojwani
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Mdbhojwani\SaveForLater\Model\Session\Storage" type="Magento\Framework\Session\Storage">
+        <arguments>
+            <argument name="namespace" xsi:type="string">saveforlater</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Mdbhojwani\SaveForLater\Model\Session" type="Magento\Framework\Session\Generic">
+        <arguments>
+            <argument name="storage" xsi:type="object">Mdbhojwani\SaveForLater\Model\Session\Storage</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\Url\SecurityInfo">
+        <arguments>
+            <argument name="secureUrlList" xsi:type="array">
+                <item name="saveforlater" xsi:type="string">/saveforlater/</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Customer\CustomerData\SectionPoolInterface">
+        <arguments>
+            <argument name="sectionSourceMap" xsi:type="array">
+                <item name="saveforlater" xsi:type="string">Mdbhojwani\SaveForLater\CustomerData\SaveForLater</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Mdbhojwani\SaveForLater\Controller\Index\Send">
+        <arguments>
+            <argument name="saveForLaterSession" xsi:type="object">Mdbhojwani\SaveForLater\Model\Session</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\Message\MessageConfigurationsPool">
+        <arguments>
+            <argument name="configurationsMap" xsi:type="array">
+                <item name="addProductSuccessMessage" xsi:type="array">
+                    <item name="renderer" xsi:type="const">\Magento\Framework\View\Element\Message\Renderer\BlockRenderer::CODE</item>
+                    <item name="data" xsi:type="array">
+                        <item name="template" xsi:type="string">Mdbhojwani_SaveForLater::messages/addProductSuccessMessage.phtml</item>
+                    </item>
+                </item>
+                <item name="removeSaveForLaterItemSuccessMessage" xsi:type="array">
+                    <item name="renderer" xsi:type="const">\Magento\Framework\View\Element\Message\Renderer\BlockRenderer::CODE</item>
+                    <item name="data" xsi:type="array">
+                        <item name="template" xsi:type="string">Mdbhojwani_SaveForLater::messages/removeSaveForLaterItemSuccessMessage.phtml</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Helper\Product\View">
+        <plugin name="pre_render_product_options_from_saveforlater" type="Mdbhojwani\SaveForLater\Plugin\Helper\Product\View" />
+    </type>
+</config>

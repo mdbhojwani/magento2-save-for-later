@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Mdbhojwani
+ * @package Mdbhojwani_SaveForLater
+ * @author Manish Bhojwani <manishbhojwani3@gmail.com>
+ * @github https://github.com/mdbhojwani
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mdbhojwani" translate="label" sortOrder="200">
+            <label>Mdbhojwani</label>
+        </tab>
+        <section id="saveforlater" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Save For Later</label>
+            <tab>mdbhojwani</tab>
+            <resource>Mdbhojwani_SaveForLater::config_saveforlater</resource>
+            <group id="email" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Share Options</label>
+                <depends>
+                    <field id="*/general/active">1</field>
+                </depends>
+                <field id="email_identity" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="email_template" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email Template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="number_limit" translate="label comment" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Max Emails Allowed to be Sent</label>
+                    <comment>10 by default. Max - 10000</comment>
+                    <validate>validate-digits validate-digits-range digits-range-1-10000</validate>
+                </field>
+                <field id="text_limit" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email Text Length Limit</label>
+                    <comment>255 by default. Max - 10000</comment>
+                    <validate>validate-digits validate-digits-range digits-range-1-10000</validate>
+                </field>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Options</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_in_sidebar" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show in Sidebar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="saveforlater_link" translate="label" sortOrder="3" showInDefault="1" showInWebsite="1">
+                <label>My Save For Later Link</label>
+                <depends>
+                    <field id="*/general/active">1</field>
+                </depends>
+                <field id="use_qty" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Display Save For Later Summary</label>
+                    <source_model>Mdbhojwani\SaveForLater\Model\Config\Source\Summary</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="rss">
+            <group id="saveforlater" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Save For Later</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable RSS</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,59 @@
+<?php
+/**
+ * @category Mdbhojwani
+ * @package Mdbhojwani_SaveForLater
+ * @author Manish Bhojwani <manishbhojwani3@gmail.com>
+ * @github https://github.com/mdbhojwani
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+// phpcs:disable PHPCompatibility.Miscellaneous.RemovedAlternativePHPTags.MaybeASPOpenTagFound
+/** @var \Mdbhojwani\SaveForLater\Block\Customer\SaveForLater $block */
+?>
+
+<?php if ($this->helper(\Mdbhojwani\SaveForLater\Helper\Data::class)->isAllow()) : ?>
+    <div class="toolbar saveforlater-toolbar"><?= $block->getChildHtml('saveforlater_item_pager'); ?></div>
+    <?= ($block->getChildHtml('saveforlater.rss.link')) ?>
+    <form class="form-saveforlater-items" id="saveforlater-view-form"
+          data-mage-init='{"saveForLater":{
+          "addToCartUrl":<?= /* @noEscape */ $block->getItemAddToCartParams("%item%") ?>,
+          "addAllToCartUrl":<?= /* @noEscape */ $block->getAddAllToCartParams() ?>,
+          "commentString":""},
+          "validation": {}}' action="<?= $block->escapeUrl($block->getUrl('saveforlater/index/update', ['saveforlater_id' => $block->getSaveForLaterInstance()->getId()])) ?>" method="post">
+        <?= $block->getChildHtml('top') ?>
+        <?php if ($block->hasSaveForLaterItems()) : ?>
+            <?= $block->getBlockHtml('formkey') ?>
+            <?php $block->getChildBlock('items')->setItems($block->getSaveForLaterItems()); ?>
+            <?= $block->getChildHtml('items') ?>
+        <?php else : ?>
+            <div class="message info empty"><span><?= $block->escapeHtml(__('You have no items in your Save For Later.')) ?></span></div>
+        <?php endif ?>
+        <?= $block->getChildHtml('bottom') ?>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <?= $block->getChildHtml('control_buttons') ?>
+            </div>
+            <div class="secondary">
+                <a href="<?= $block->escapeUrl($block->getBackUrl()) ?>" class="action back">
+                    <span><?= $block->escapeHtml(__('Back')) ?></span>
+                </a>
+            </div>
+        </div>
+    </form>
+    <script id="form-tmpl" type="text/x-magento-template">
+      <form id="saveforlater-hidden-form" method="post" action="<%- data.url %>" class="no-display">
+          <% if (data.qty) { %>
+          <input name="qty" value="<%- data.qty %>">
+          <% } %>
+          
+          <% if (data.item) { %>
+          <input name="item" value="<%- data.item %>">
+          <% } %>
+          
+          <% if (data.entity) { %>
+          <input name="entity" value="<%- data.entity %>">
+          <% } %>
+      </form>
+    </script>
+    <div class="toolbar saveforlater-toolbar"><br><?= $block->getChildHtml('saveforlater_item_pager'); ?></div>
+<?php endif ?>

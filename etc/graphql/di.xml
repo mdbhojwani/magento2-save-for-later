@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Mdbhojwani
+ * @package Mdbhojwani_SaveForLater
+ * @author Manish Bhojwani <manishbhojwani3@gmail.com>
+ * @github https://github.com/mdbhojwani
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Mdbhojwani\SaveForLater\Model\SaveForLater\BuyRequest\BuyRequestBuilder">
+        <arguments>
+            <argument name="providers" xsi:type="array">
+                <item name="super_attribute" xsi:type="object">Mdbhojwani\SaveForLater\Model\SaveForLater\BuyRequest\SuperAttributeDataProvider</item>
+                <item name="customizable_option" xsi:type="object">Mdbhojwani\SaveForLater\Model\SaveForLater\BuyRequest\CustomizableOptionDataProvider</item>
+                <item name="bundle" xsi:type="object">Mdbhojwani\SaveForLater\Model\SaveForLater\BuyRequest\BundleDataProvider</item>
+                <item name="downloadable" xsi:type="object">Mdbhojwani\SaveForLater\Model\SaveForLater\BuyRequest\DownloadableLinkDataProvider</item>
+                <item name="grouped" xsi:type="object">Mdbhojwani\SaveForLater\Model\SaveForLater\BuyRequest\SuperGroupDataProvider</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

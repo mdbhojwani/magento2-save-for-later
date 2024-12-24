@@ -1,0 +1,26 @@
+{
+    "name": "mdbhojwani/magneto2-save-for-later",
+    "description": "Magento 2 Save For Later",
+    "keywords": ["magento", "magento2", "magento2 extension", "magento 2 extension", "extension", "module", "magento2 module", "save for later", "Save For Later"],
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "homepage": "https://github.com/mdbhojwani/magneto2-save-for-later",
+    "authors": [
+        {
+            "name": "Manish Bhojwani",
+            "email": "manishbhojwani3@gmail.com",
+            "homepage": "https://github.com/mdbhojwani"
+        }
+    ],
+    "license": [
+        "OSL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mdbhojwani\\SaveForLater\\": ""
+        }
+    }
+}

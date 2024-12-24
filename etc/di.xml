@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Mdbhojwani
+ * @package Mdbhojwani_SaveForLater
+ * @author Manish Bhojwani <manishbhojwani3@gmail.com>
+ * @github https://github.com/mdbhojwani
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Mdbhojwani\SaveForLater\Model\AuthenticationStateInterface" type="Mdbhojwani\SaveForLater\Model\AuthenticationState" />
+    <preference for="Mdbhojwani\SaveForLater\Controller\SaveForLaterProviderInterface" type="Mdbhojwani\SaveForLater\Controller\SaveForLaterProvider" />
+    <type name="Mdbhojwani\SaveForLater\Model\ResourceModel\Item\Collection\Grid">
+        <arguments>
+            <argument name="resource" xsi:type="object">Mdbhojwani\SaveForLater\Model\ResourceModel\Item</argument>
+        </arguments>
+    </type>
+    <type name="Mdbhojwani\SaveForLater\Helper\Data">
+        <arguments>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Mdbhojwani\SaveForLater\Controller\AbstractIndex">
+        <plugin name="authentication" type="Mdbhojwani\SaveForLater\Controller\Index\Plugin" sortOrder="10"/>
+    </type>
+    <virtualType name="Mdbhojwani\SaveForLater\Block\Context" type="Magento\Catalog\Block\Product\Context">
+        <arguments>
+            <argument name="saveForLaterHelper" xsi:type="object">Mdbhojwani\SaveForLater\Helper\Rss</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\App\Rss\RssManagerInterface">
+        <arguments>
+            <argument name="dataProviders" xsi:type="array">
+                <item name="saveforlater" xsi:type="string">Mdbhojwani\SaveForLater\Model\Rss\SaveForLater</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Magento\Bundle\Pricing\Price\Pool" type="Magento\Framework\Pricing\Price\Pool">
+        <arguments>
+            <argument name="prices" xsi:type="array">
+                <item name="saveforlater_configured_price" xsi:type="string">Magento\Bundle\Pricing\Price\ConfiguredPrice</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magento\Catalog\Pricing\Price\Pool" type="Magento\Framework\Pricing\Price\Pool">
+        <arguments>
+            <argument name="prices" xsi:type="array">
+                <item name="saveforlater_configured_price" xsi:type="string">Magento\Catalog\Pricing\Price\ConfiguredPrice</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magento\ConfigurableProduct\Pricing\Price\Pool" type="Magento\Framework\Pricing\Price\Pool">
+        <arguments>
+            <argument name="prices" xsi:type="array">
+                <item name="saveforlater_configured_price" xsi:type="string">Mdbhojwani\SaveForLater\Pricing\ConfiguredPrice\ConfigurableProduct</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magento\Downloadable\Pricing\Price\Pool" type="Magento\Framework\Pricing\Price\Pool">
+        <arguments>
+            <argument name="prices" xsi:type="array">
+                <item name="saveforlater_configured_price" xsi:type="string">Mdbhojwani\SaveForLater\Pricing\ConfiguredPrice\Downloadable</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magento\GroupedProduct\Pricing\Price\Pool" type="Magento\Framework\Pricing\Price\Pool">
+        <arguments>
+            <argument name="prices" xsi:type="array">
+                <item name="saveforlater_configured_price" xsi:type="string">Magento\GroupedProduct\Pricing\Price\ConfiguredPrice</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Catalog\Ui\DataProvider\Product\Listing\DataProvider">
+        <plugin name="saveForLaterSettingsDataProvider" type="Mdbhojwani\SaveForLater\Plugin\Ui\DataProvider\SaveForLaterSettings"/>
+    </type>
+    <type name="Magento\Catalog\Ui\DataProvider\Product\ProductRenderCollectorComposite">
+        <arguments>
+            <argument name="productProviders" xsi:type="array">
+                <item name="saveforlater_url" xsi:type="object">\Mdbhojwani\SaveForLater\Ui\DataProvider\Product\Collector\Button</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Mdbhojwani\SaveForLater\Model\ResourceModel\Item\Product\CollectionBuilderInterface"
+                type="Mdbhojwani\SaveForLater\Model\ResourceModel\Item\Product\CollectionBuilder"/>
+</config>

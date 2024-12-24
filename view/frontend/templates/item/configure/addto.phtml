@@ -1,0 +1,33 @@
+<?php
+/**
+ * @category Mdbhojwani
+ * @package Mdbhojwani_SaveForLater
+ * @author Manish Bhojwani <manishbhojwani3@gmail.com>
+ * @github https://github.com/mdbhojwani
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+/** @var \Mdbhojwani\SaveForLater\Block\Item\configure $block */
+?>
+
+<div class="product-addto-links" data-role="add-to-links">
+    <?php if ($this->helper(\Mdbhojwani\SaveForLater\Helper\Data::class)->isAllow()) : ?>
+        <a href="#" data-post='<?= /* @noEscape */ $block->getUpdateParams() ?>' class="action tosaveforlater updated" data-action="add-to-saveforlater">
+            <span><?= $block->escapeHtml(__('Update')) ?></span>
+        </a>
+    <?php endif; ?>
+    <?php $_product = $block->getProduct(); ?>
+    <?php $_compareUrl = $this->helper(\Magento\Catalog\Helper\Product\Compare::class)->getAddUrl($_product); ?>
+    <?php if ($_compareUrl) : ?>
+        <a href="<?= $block->escapeUrl($_compareUrl) ?>" class="action tocompare">
+            <span><?= $block->escapeHtml(__('Add to Compare')) ?></span>
+        </a>
+    <?php endif; ?>
+</div>
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "addToSaveForLater": <?= /* @noEscape */ $this->helper(\Magento\Framework\Json\Helper\Data::class)->jsonEncode($block->getSaveForLaterOptions()) ?>
+        }
+    }
+</script>

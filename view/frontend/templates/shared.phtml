@@ -1,0 +1,106 @@
+<?php
+/**
+ * @category Mdbhojwani
+ * @package Mdbhojwani_SaveForLater
+ * @author Manish Bhojwani <manishbhojwani3@gmail.com>
+ * @github https://github.com/mdbhojwani
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+/** @var \Mdbhojwani\SaveForLater\Block\Share\SaveForLater $block */
+/** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
+?>
+
+<?php if ($block->hasSaveForLaterItems()): ?>
+    <form class="form shared saveforlater" action="<?= $block->escapeUrl($block->getUrl('saveforlater/index/update')) ?>"
+          method="post">
+        <div class="saveforlater table-wrapper">
+            <table class="table data saveforlater" id="saveforlater-table">
+                <caption class="table-caption"><?= $block->escapeHtml(__('Save For Later')) ?></caption>
+                <thead>
+                <tr>
+                    <th class="col product" scope="col"><?= $block->escapeHtml(__('Product')) ?></th>
+                    <th class="col comment" scope="col"><?= $block->escapeHtml(__('Comment')) ?></th>
+                    <th class="col actions" scope="col"><?= $block->escapeHtml(__('Add to Cart')) ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($block->getSaveForLaterItems() as $item): ?>
+                    <?php
+                    $product = $item->getProduct();
+                    $isVisibleProduct = $product->isVisibleInSiteVisibility();
+                    ?>
+                    <tr>
+                        <td data-th="<?= $block->escapeHtmlAttr(__('Product')) ?>" class="col product">
+                            <a class="product photo" href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>"
+                               title="<?= $block->escapeHtmlAttr($product->getName()) ?>">
+                                <?= $block->getImage($product, 'customer_shared_saveforlater')->toHtml() ?>
+                            </a>
+                            <strong class="product name">
+                                <a href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>">
+                                    <?= $block->escapeHtml($product->getName()) ?>
+                                </a>
+                            </strong>
+                            <?=
+                                $block->getProductPriceHtml(
+                                    $product,
+                                    'saveforlater_configured_price',
+                                    \Magento\Framework\Pricing\Render::ZONE_ITEM_LIST,
+                                    ['item' => $item]
+                                );
+                            ?>
+                            <?= $block->getDetailsHtml($item) ?>
+                        </td>
+                        <td data-th="<?= $block->escapeHtmlAttr(__('Comment')) ?>"
+                            class="col comment"><?= /* @noEscape */ $block->getEscapedDescription($item) ?>
+                        </td>
+                        <td data-th="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>" class="col actions"
+                            data-role="add-to-links">
+                            <?php if ($product->isSaleable()): ?>
+                                <?php if ($isVisibleProduct): ?>
+                                    <button type="button"
+                                            title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>"
+                                            data-post='<?= /* @noEscape */ $block->getSharedItemAddToCartUrl($item) ?>'
+                                            class="action tocart">
+                                        <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+                                    </button>
+                                <?php endif ?>
+                            <?php endif; ?>
+                            <a href="#" data-post='<?= /* @noEscape */ $block->getAddToSaveForLaterParams($item) ?>'
+                               id="saveforlater-shared-item-<?= /* @noEscape */ $item->getId() ?>"
+                               class="action tosaveforlater" data-action="add-to-saveforlater">
+                                <span><?= $block->escapeHtml(__('Save For Later')) ?></span>
+                            </a>
+                            <?= /* @noEscape */ $secureRenderer->renderEventListenerAsTag(
+                                'onclick',
+                                "location.assign(this.href); event.preventDefault();",
+                                'a#saveforlater-shared-item-' . $item->getId()
+                            ) ?>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="actions-toolbar">
+            <?php if ($block->isSaleable()): ?>
+                <div class="primary">
+                    <button type="button"
+                            title="<?= $block->escapeHtmlAttr(__('Add All to Cart')) ?>"
+                            data-post='<?= $block->escapeUrl($block->getSharedAddAllToCartUrl()) ?>'
+                            class="action tocart primary">
+                        <span><?= $block->escapeHtml(__('Add All to Cart')) ?></span>
+                    </button>
+                </div>
+            <?php endif;?>
+            <div class="secondary">
+                <a href="<?= $block->escapeUrl($block->getBackUrl()) ?>" class="action back">
+                    <span><?= $block->escapeHtml(__('Back')) ?></span>
+                </a>
+            </div>
+        </div>
+    </form>
+<?php else: ?>
+    <div class="message info empty"><div><?= $block->escapeHtml(__('Save For Later is empty now.')) ?></div></div>
+<?php endif ?>

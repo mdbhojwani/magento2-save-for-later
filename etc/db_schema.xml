@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Mdbhojwani
+ * @package Mdbhojwani_SaveForLater
+ * @author Manish Bhojwani <manishbhojwani3@gmail.com>
+ * @github https://github.com/mdbhojwani
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="saveforlater" resource="default" engine="innodb" comment="SaveForLater main Table">
+        <column xsi:type="int" name="saveforlater_id" unsigned="true" nullable="false" identity="true"
+                comment="SaveForLater ID"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" identity="false"
+                default="0" comment="Customer ID"/>
+        <column xsi:type="smallint" name="shared" unsigned="true" nullable="false" identity="false"
+                default="0" comment="Sharing flag (0 or 1)"/>
+        <column xsi:type="varchar" name="sharing_code" nullable="true" length="32" comment="Sharing encrypted code"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="false" nullable="true" comment="Last updated date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="saveforlater_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="SAVEFORLATER_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID" table="saveforlater"
+                    column="customer_id" referenceTable="customer_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+        <constraint xsi:type="unique" referenceId="SAVEFORLATER_CUSTOMER_ID">
+            <column name="customer_id"/>
+        </constraint>
+        <index referenceId="SAVEFORLATER_SHARED" indexType="btree">
+            <column name="shared"/>
+        </index>
+    </table>
+    <table name="saveforlater_item" resource="default" engine="innodb" comment="SaveForLater items">
+        <column xsi:type="int" name="saveforlater_item_id" unsigned="true" nullable="false" identity="true"
+                comment="SaveForLater item ID"/>
+        <column xsi:type="int" name="saveforlater_id" unsigned="true" nullable="false" identity="false"
+                default="0" comment="SaveForLater ID"/>
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" identity="false"
+                default="0" comment="Product ID"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="true" identity="false"
+                comment="Store ID"/>
+        <column xsi:type="timestamp" name="added_at" on_update="false" nullable="true" comment="Add date and time"/>
+        <column xsi:type="text" name="description" nullable="true" comment="Short description of saveforlater item"/>
+        <column xsi:type="decimal" name="qty" scale="4" precision="12" unsigned="false" nullable="false"
+                comment="Qty"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="saveforlater_item_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="SAVEFORLATER_ITEM_SAVEFORLATER_ID_SAVEFORLATER_SAVEFORLATER_ID" table="saveforlater_item"
+                    column="saveforlater_id" referenceTable="saveforlater" referenceColumn="saveforlater_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="SAVEFORLATER_ITEM_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID"
+                    table="saveforlater_item" column="product_id" referenceTable="catalog_product_entity"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="SAVEFORLATER_ITEM_STORE_ID_STORE_STORE_ID" table="saveforlater_item"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="SET NULL"/>
+        <index referenceId="SAVEFORLATER_ITEM_SAVEFORLATER_ID" indexType="btree">
+            <column name="saveforlater_id"/>
+        </index>
+        <index referenceId="SAVEFORLATER_ITEM_PRODUCT_ID" indexType="btree">
+            <column name="product_id"/>
+        </index>
+        <index referenceId="SAVEFORLATER_ITEM_STORE_ID" indexType="btree">
+            <column name="store_id"/>
+        </index>
+    </table>
+    <table name="saveforlater_item_option" resource="default" engine="innodb" comment="SaveForLater Item Option Table">
+        <column xsi:type="int" name="option_id" unsigned="true" nullable="false" identity="true"
+                comment="Option ID"/>
+        <column xsi:type="int" name="saveforlater_item_id" unsigned="true" nullable="false" identity="false"
+                comment="SaveForLater Item ID"/>
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" identity="false"
+                comment="Product ID"/>
+        <column xsi:type="varchar" name="code" nullable="false" length="255" comment="Code"/>
+        <column xsi:type="text" name="value" nullable="true" comment="Value"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="option_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="SAVEFORLATER_ITEM_OPTION_ITEM_ID_SAVEFORLATER_ITEM_ITEM_ID" table="saveforlater_item_option"
+                    column="saveforlater_item_id" referenceTable="saveforlater_item" referenceColumn="saveforlater_item_id"
+                    onDelete="CASCADE"/>
+    </table>
+</schema>

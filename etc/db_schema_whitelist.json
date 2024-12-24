@@ -1,0 +1,55 @@
+{
+    "saveforlater": {
+        "column": {
+            "saveforlater_id": true,
+            "customer_id": true,
+            "shared": true,
+            "sharing_code": true,
+            "updated_at": true
+        },
+        "index": {
+            "SAVEFORLATER_SHARED": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SAVEFORLATER_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "SAVEFORLATER_CUSTOMER_ID": true
+        }
+    },
+    "saveforlater_item": {
+        "column": {
+            "saveforlater_item_id": true,
+            "saveforlater_id": true,
+            "product_id": true,
+            "store_id": true,
+            "added_at": true,
+            "description": true,
+            "qty": true
+        },
+        "index": {
+            "SAVEFORLATER_ITEM_SAVEFORLATER_ID": true,
+            "SAVEFORLATER_ITEM_PRODUCT_ID": true,
+            "SAVEFORLATER_ITEM_STORE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SAVEFORLATER_ITEM_SAVEFORLATER_ID_SAVEFORLATER_SAVEFORLATER_ID": true,
+            "SAVEFORLATER_ITEM_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID": true,
+            "SAVEFORLATER_ITEM_STORE_ID_STORE_STORE_ID": true
+        }
+    },
+    "saveforlater_item_option": {
+        "column": {
+            "option_id": true,
+            "saveforlater_item_id": true,
+            "product_id": true,
+            "code": true,
+            "value": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SAVEFORLATER_ITEM_OPTION_ITEM_ID_SAVEFORLATER_ITEM_ITEM_ID": true,
+            "SAVEFORLATER_ITEM_OPTION_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID": true
+        }
+    }
+}
