@@ -396,7 +396,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
                 $connection->quoteInto('cat_index.visibility IN (?)', $visibleInSiteIds)
             ];
             $this->getSelect()->join(
-                ['cat_index' => $this->tableMaintainer->getMainTable($this->_storeManager->getStore()->getId())],
+                ['cat_index' => $this->tableMaintainer->getMainTable((int)$this->_storeManager->getStore()->getId())],
                 join(' AND ', $visibilityConditions),
                 []
             );

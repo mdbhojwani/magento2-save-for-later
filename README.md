@@ -64,49 +64,22 @@ By following these 2 Ways you can easily obtain and install the module. For deta
 
 ## Magento 2 Save For Later User Guide
 
-Login to the **Magento Admin**, navigate to `Store > Configurations -> Mdbhojwani -> Save For Later `.
-
-There,You can find two options: configuration, and Save for later Products and Analyzation.
-
-<div>
-    <img src="./assets/AdminSaveForLater.png" alt="AdminSaveForLater">
-</div><br/>
-
-#### 1. General Configuration 
-
-- Extension enable : Select Yes/No to enable or disable the module
+Login to the **Magento Admin**, navigate to Configurations
+Path: `Store > Configurations -> Mdbhojwani -> Save For Later `.
 
 <div>
-    <img src="./assets/GeneralConfiguration.png" alt="GeneralConfiguration">
+    <img src="./assets/1.png" alt="Admin Configurations">
 </div><br/>
 
 Click on "Save", which will save the configuration.
 
-#### 2. Save for later Products and Analyzation 
-
-Here, you can find the option to select different charts to analyze the 'save for later' section for marketing purposes. You can analyze this data through intuitive graphs, such as daily activity metrics, popular product trends, monthly insights, and yearly overviews.
-
-By using these graphs, you can analyze the data in various ways on a daily, monthly, and yearly basis.
-
-Once you choose the graph type, the graph will appear, as shown in the image below.
-<div>
-    <img src="./assets/Chart.png" alt="Chart">
-</div><br/>
-
-Furthermore, inside this page, as you scroll down, you'll be able to access a grid for detailed data analysis. Within this section, you can thoroughly examine and interpret the data of the 'save for later' section. This feature proves beneficial for marketing purposes as well, offering valuable insights into consumer behavior and preferences.
-
-<div>
-    <img src="./assets/SaveForLaterGrid.png" alt="SaveForLaterGrid">
-</div><br/>
-
-
 ## Frontend 
 
-After a customer adds a product to the cart within the mini-cart, they can see a single button labeled "Save for Later".
+After a customer adds a product to the cart, customer can see the "Save for Later" button in cart page against each cart item.
 Only logged-in customers can use the "Save for Later" option to add products.
 
 <div>
-    <img src="./assets/SaveForLaterButton.png" alt="SaveForLaterButton">
+    <img src="./assets/2.png" alt="Save For Later Button">
 </div><br/>
 
 Upon clicking this button, all products in the cart will be moved to the "Save for Later" section. 
@@ -114,21 +87,14 @@ Upon clicking this button, all products in the cart will be moved to the "Save f
 To access this section, customers can navigate to "My Account" and find the "Save for Later" tab. Here, they can view all the products they have moved for later consideration.
 
 <div>
-    <img src="./assets/SaveForLaterSection.png" alt="SaveForLaterSection">
+    <img src="./assets/3.png" alt="Save For Later Section">
 </div><br/>
-
-
-As you can see in the above screenshot, customers can easily manage products from the "Save for Later" section. They can add products back to the cart, adjust the quantity, and remove items.However, if a product is out of stock or the desired quantity isn't available, it won't be added to the cart.
-
- Additionally, if there are more than 5 or 6 products in the "Save for Later" section, a loader will appear for seamless navigation.
 
 <div>
-    <img src="./assets/AddProducrToCart.png" alt="AddProducrToCart">
+    <img src="./assets/4.png" alt="Save For Later Section">
 </div><br/>
 
+
+As you can see in the above screenshot, customers can easily manage products from the "Save for Later" section. They can add products back to the cart, adjust the quantity, and remove items. However, if a product is out of stock or the desired quantity isn't available, it won't be added to the cart.
+
 Following the actions described, customers will receive messages similar to those shown in the screenshots. Whether they add, remove, or encounter any issues, appropriate messages will be displayed for clarity and guidance.
-
-
-
-
-

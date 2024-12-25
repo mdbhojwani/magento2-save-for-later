@@ -11,11 +11,12 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="customer_account_navigation">
-            <block class="Magento\Customer\Block\Account\SortLinkInterface" ifconfig="saveforlater/general/active" name="customer-account-navigation-saveforlater-link">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" ifconfig="saveforlater/general/active" name="customer-account-navigation-saveforlater-link">
                 <arguments>
                     <argument name="path" xsi:type="string">saveforlater</argument>
                     <argument name="label" xsi:type="string" translate="true">My Save For Later</argument>
-                    <argument name="sortOrder" xsi:type="number">340</argument>
+                    <argument name="sortOrder" xsi:type="number">270</argument>
+                    <argument name="navigation" xsi:type="boolean">true</argument>
                 </arguments>
             </block>
         </referenceBlock>

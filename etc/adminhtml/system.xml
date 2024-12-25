@@ -17,6 +17,13 @@
             <label>Save For Later</label>
             <tab>mdbhojwani</tab>
             <resource>Mdbhojwani_SaveForLater::config_saveforlater</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Options</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
             <group id="email" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Share Options</label>
                 <depends>
@@ -40,20 +47,6 @@
                     <label>Email Text Length Limit</label>
                     <comment>255 by default. Max - 10000</comment>
                     <validate>validate-digits validate-digits-range digits-range-1-10000</validate>
-                </field>
-            </group>
-            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>General Options</label>
-                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                    <label>Enabled</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-                <field id="show_in_sidebar" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                    <label>Show in Sidebar</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <depends>
-                        <field id="active">1</field>
-                    </depends>
                 </field>
             </group>
             <group id="saveforlater_link" translate="label" sortOrder="3" showInDefault="1" showInWebsite="1">

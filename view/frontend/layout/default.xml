@@ -20,12 +20,5 @@
                 </arguments>
             </block>
         </referenceBlock>
-        <referenceContainer name="sidebar.additional">
-            <block class="Mdbhojwani\SaveForLater\Block\Customer\Sidebar" name="saveforlater_sidebar" as="saveforlater" template="Mdbhojwani_SaveForLater::sidebar.phtml" ifconfig="saveforlater/general/show_in_sidebar">
-                <arguments>
-                    <argument name="saveForLaterDataViewModel" xsi:type="object">Mdbhojwani\SaveForLater\ViewModel\SaveForLaterData</argument>
-                </arguments>
-            </block>
-        </referenceContainer>
     </body>
 </page>
