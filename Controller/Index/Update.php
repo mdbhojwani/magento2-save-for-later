@@ -124,7 +124,7 @@ class Update extends \Mdbhojwani\SaveForLater\Controller\AbstractIndex implement
                 try {
                     $item->setDescription($description)->setQty($qty)->save();
                     $this->messageManager->addSuccessMessage(
-                        __('%1 has been updated in your save for later.', $item->getProduct()->getName())
+                        __('%1 has been updated in the save for later.', $item->getProduct()->getName())
                     );
                     $updatedItems++;
                 } catch (\Exception $e) {

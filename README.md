@@ -1,17 +1,19 @@
-# Save For Later Extension for Magento 2
+<strong>Magento 2 Save For Later Extension</strong> 
 
-The "Save For Later" extension for Magento 2 makes shopping easier. It lets logged-in customers save products they like but aren't ready to buy yet, similar to what you see on Amazon. This way, shoppers can keep track of what they're interested in without having to make a purchase right away.
+## Table of contents
 
-By adding this feature to your store, you're giving customers more flexibility and making it easier for them to shop at their own pace. Admins can enable or disable the module And also can view which products customers have saved, along with the quantity of each item. Furthermore, they can analyze this data through intuitive graphs, such as daily activity metrics, popular product trends, monthly insights, and yearly overviews.
+- [Summary](#summary)
+- [Configurations](#configurations)
+- [Installation](#installation)
+- [License](#license)
 
-The "Save for Later" module helps admins understand what customers like, so they can make the website better for everyone. This means happier customers and smarter marketing.
+## Summary
 
-## Features
+The Magento 2 "Save for Later" extension makes shopping easier by allowing logged-in customers to save products they like but aren't ready to purchase yet, similar to the functionality seen on platforms like Amazon, Flipkart, and Myntra. This way, shoppers can keep track of items they're interested in without needing to make an immediate purchase.
 
-- Easy to use
-- User-friendly interface
-- Users can effortlessly save products for later
-- Admins can easily configure the module
+By adding this feature to your store, you're offering customers more flexibility and enabling them to shop at their own pace. Admins can enable or disable the module and view which products customers have saved, along with the quantity of each item. Additionally, admins can analyze this data through intuitive graphs, such as daily activity metrics, popular product trends, monthly insights, and yearly overviews.
+
+The "Save for Later" module helps admins understand customer preferences, allowing them to enhance the website and improve the overall shopping experience. This leads to happier customers and more effective marketing.
 
 ## Installation
 
@@ -62,39 +64,44 @@ php bin/magento c:c
 
 By following these 2 Ways you can easily obtain and install the module. For detailed instructions on its usage, refer to the user guide within this document.
 
-## Magento 2 Save For Later User Guide
+
+## Configurations
 
 Login to the **Magento Admin**, navigate to Configurations
 Path: `Store > Configurations -> Mdbhojwani -> Save For Later `.
 
 <div>
-    <img src="./assets/1.png" alt="Admin Configurations">
+    <img src="./media/1.png" alt="Admin Configurations">
 </div><br/>
 
 Click on "Save", which will save the configuration.
 
+
 ## Frontend 
 
-After a customer adds a product to the cart, customer can see the "Save for Later" button in cart page against each cart item.
-Only logged-in customers can use the "Save for Later" option to add products.
+After a customer adds a product to their cart, they will see the "Save for Later" button next to each cart item. Only logged-in customers can use the "Save for Later" option to move products.
 
 <div>
-    <img src="./assets/2.png" alt="Save For Later Button">
+    <img src="./media/2.png" alt="Save For Later Button">
 </div><br/>
 
-Upon clicking this button, all products in the cart will be moved to the "Save for Later" section. 
+When this button is clicked, all selected products will be moved to the "Save for Later" section.
 
-To access this section, customers can navigate to "My Account" and find the "Save for Later" tab. Here, they can view all the products they have moved for later consideration.
+To access this section, customers can navigate to "My Account" and click on the "Save for Later" tab, where they can view all the products they have saved for future consideration.
 
 <div>
-    <img src="./assets/3.png" alt="Save For Later Section">
+    <img src="./media/3.png" alt="Save For Later Section">
 </div><br/>
 
 <div>
-    <img src="./assets/4.png" alt="Save For Later Section">
+    <img src="./media/4.png" alt="Save For Later Section">
 </div><br/>
 
+As shown in the screenshot above, customers can easily manage products in the "Save for Later" section. They can add items back to the cart, adjust quantities, or remove products. However, if a product is out of stock or the desired quantity is unavailable, it will not be added back to the cart.
 
-As you can see in the above screenshot, customers can easily manage products from the "Save for Later" section. They can add products back to the cart, adjust the quantity, and remove items. However, if a product is out of stock or the desired quantity isn't available, it won't be added to the cart.
+Customers will also receive notifications, similar to those shown in the screenshots, whenever they add, remove, or encounter any issues. These messages provide clear guidance and feedback.
 
-Following the actions described, customers will receive messages similar to those shown in the screenshots. Whether they add, remove, or encounter any issues, appropriate messages will be displayed for clarity and guidance.
+
+## License
+
+[Open Software License ("OSL") v. 3.0](https://opensource.org/license/osl-3-0-php)

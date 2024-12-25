@@ -123,7 +123,7 @@ class Fromcart extends \Mdbhojwani\SaveForLater\Controller\AbstractIndex impleme
             $saveForLater->save();
 
             $this->messageManager->addSuccessMessage(__(
-                "%1 has been moved to your save for later.",
+                "%1 has been moved to the save for later.",
                 $this->escaper->escapeHtml($item->getProduct()->getName())
             ));
         } catch (LocalizedException $e) {

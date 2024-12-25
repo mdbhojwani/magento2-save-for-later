@@ -118,12 +118,12 @@ class UpdateItemOptions extends \Mdbhojwani\SaveForLater\Controller\AbstractInde
 
             $this->_objectManager->get(\Mdbhojwani\SaveForLater\Helper\Data::class)->calculate();
 
-            $message = __('%1 has been updated in your save for later.', $product->getName());
+            $message = __('%1 has been updated in the save for later.', $product->getName());
             $this->messageManager->addSuccessMessage($message);
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             $this->messageManager->addErrorMessage($e->getMessage());
         } catch (\Exception $e) {
-            $this->messageManager->addErrorMessage(__('We can\'t update your save for later right now.'));
+            $this->messageManager->addErrorMessage(__('We can\'t update the save for later right now.'));
             $this->_objectManager->get(\Psr\Log\LoggerInterface::class)->critical($e);
         }
         $resultRedirect->setPath('*/*', ['saveforlater_id' => $saveForLater->getId()]);
