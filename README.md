@@ -3,6 +3,7 @@
 ## Table of contents
 
 - [Summary](#summary)
+- [Recommendation](#recommendation)
 - [Configurations](#configurations)
 - [Installation](#installation)
 - [License](#license)
@@ -14,6 +15,10 @@ The Magento 2 "Save for Later" extension makes shopping easier by allowing logge
 By adding this feature to your store, you're offering customers more flexibility and enabling them to shop at their own pace. Admins can enable or disable the module and view which products customers have saved, along with the quantity of each item. Additionally, admins can analyze this data through intuitive graphs, such as daily activity metrics, popular product trends, monthly insights, and yearly overviews.
 
 The "Save for Later" module helps admins understand customer preferences, allowing them to enhance the website and improve the overall shopping experience. This leads to happier customers and more effective marketing.
+
+## Recommendation
+
+We recommend installing the [Magento 2 Save For Later Analytics Extension](https://github.com/mdbhojwani/magento2-save-for-later-analytics) alongside this extension. With the Analytics Extension, admins can view customer 'Save for Later' behavior from the backend.
 
 ## Installation
 
