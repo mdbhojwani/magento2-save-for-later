@@ -10,11 +10,7 @@
 
 ## Summary
 
-The Magento 2 "Save for Later" extension makes shopping easier by allowing logged-in customers to save products they like but aren't ready to purchase yet, similar to the functionality seen on platforms like Amazon, Flipkart, and Myntra. This way, shoppers can keep track of items they're interested in without needing to make an immediate purchase.
-
-By adding this feature to your store, you're offering customers more flexibility and enabling them to shop at their own pace. Admins can enable or disable the module and view which products customers have saved, along with the quantity of each item. Additionally, admins can analyze this data through intuitive graphs, such as daily activity metrics, popular product trends, monthly insights, and yearly overviews.
-
-The "Save for Later" module helps admins understand customer preferences, allowing them to enhance the website and improve the overall shopping experience. This leads to happier customers and more effective marketing.
+The Magento 2 "Save for Later" extension makes shopping easier by allowing logged-in customers to save products they like but aren't ready to purchase yet, similar to the functionality seen on platforms like Amazon, Flipkart, and Myntra.
 
 ## Recommendation
 
