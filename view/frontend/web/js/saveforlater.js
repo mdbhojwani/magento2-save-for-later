@@ -53,7 +53,7 @@ define([
                         $.mage.dataPost().postData($(event.currentTarget).data('post-remove'));
                     }, this))
                     .on('click', this.options.addToCartSelector, $.proxy(this._beforeAddToCart, this))
-                    .on('click', this.options.addAllToCartSelector, $.proxy(this._addAllWItemsToCart, this))
+                    .on('click', this.options.addAllToCartSelector, $.proxy(this._addAllItemsToCart, this))
                     .on('focusin focusout', this.options.commentInputType, $.proxy(this._focusComment, this));
             }
 
@@ -113,7 +113,7 @@ define([
          * Add all SaveForLater items to cart
          * @private
          */
-        _addAllWItemsToCart: function () {
+        _addAllItemsToCart: function () {
             var urlParams = this.options.addAllToCartUrl,
                 separator = urlParams.action.indexOf('?') >= 0 ? '&' : '?';
 

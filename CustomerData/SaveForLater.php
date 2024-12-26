@@ -117,8 +117,6 @@ class SaveForLater implements SectionSourceInterface
      */
     protected function getItems()
     {
-        $this->view->loadLayout();
-
         $collection = $this->saveForLaterHelper->getSaveForLaterItemCollection();
         $collection->clear()->setPageSize(self::SIDEBAR_ITEMS_NUMBER)
             ->setInStockFilter(true)->setOrder('added_at');
